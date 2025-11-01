@@ -96,3 +96,194 @@ section h2 { color: #cba6f7; font-weight: 700; margin-bottom: 1.5rem; }
 
 /* Sticky navigation */
 .sticky-nav { position: sticky; top: 15px; z-index: 50; }
+
+/* HERO text effect */
+#changing-text {
+  display: inline-block;
+  border-right: 2px solid #cba6f7;
+  white-space: nowrap;
+  overflow: hidden;
+  vertical-align: bottom;
+  animation: blink 0.8s step-end infinite;
+}
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+/* Fix alignment for Experience and Certifications */
+#experience .timeline,
+#certifications ul {
+  max-width: 800px;
+  margin: 0 auto; /* center align content */
+}
+
+/* Light theme hero overlay fix */
+.light-theme .hero-section::before {
+  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)); /* darker overlay */
+}
+.light-theme .hero-section {
+  color: #fff; /* keep text readable */
+}
+.light-theme #changing-text {
+  color: #cba6f7;
+}
+/* === Nov 2025 Fixes: Visibility, Alignment, Typewriter, Centering === */
+
+/* --- Hero buttons: always visible --- */
+.hero-buttons .btn {
+  border-color: #cba6f7;
+  color: #fff !important;
+}
+.hero-buttons .btn:hover {
+  background: #cba6f7;
+  color: #111 !important;
+}
+
+/* In light mode, keep them readable (white text on transparent) */
+.light-theme .hero-buttons .btn {
+  background: transparent;
+  color: #fff !important;
+  border-color: #cba6f7;
+}
+.light-theme .hero-buttons .btn:hover {
+  background: #cba6f7;
+  color: #111 !important;
+}
+
+/* --- Keep Stoyancho static + typewriter centered --- */
+.hero-content h1 {
+  display: inline-block;
+  white-space: nowrap;
+}
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Typewriter caret and smooth appearance */
+#changing-text {
+  display: inline-block;
+  border-right: 2px solid #cba6f7;
+  white-space: nowrap;
+  overflow: hidden;
+  vertical-align: bottom;
+  animation: blink 0.8s step-end infinite;
+  margin-left: 8px; /* space between Stoyancho and rotating text */
+}
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+/* --- Certifications Center Alignment --- */
+#certifications ul {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  padding-left: 0;
+}
+#certifications .list-group-item {
+  text-align: center;
+  background: transparent;
+  border: none;
+  font-size: 1.05rem;
+}
+
+/* --- Keep hero image visible in light mode --- */
+.light-theme .hero-section::before {
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6));
+}
+.light-theme .hero-section {
+  color: #fff;
+}
+/* === Nov 2025 Final Polish: Hero Buttons Glow + Fix Stoyancho Alignment === */
+
+/* --- HERO BUTTONS: glow effect + always visible --- */
+.hero-buttons .btn {
+  position: relative;
+  border-color: #cba6f7;
+  color: #fff !important;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.hero-buttons .btn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: #cba6f7;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.hero-buttons .btn:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.hero-buttons .btn:hover {
+  background: #cba6f7;
+  color: #111 !important;
+  box-shadow: 0 0 10px rgba(203, 166, 247, 0.6);
+}
+
+/* Keep them white in light mode */
+.light-theme .hero-buttons .btn {
+  background: transparent;
+  color: #fff !important;
+  border-color: #cba6f7;
+}
+.light-theme .hero-buttons .btn:hover {
+  background: #cba6f7;
+  color: #111 !important;
+}
+
+/* --- FIX "STOYANCHO" POSITION SHIFT --- */
+.hero-content h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* space between Stoyancho and animated text */
+  flex-wrap: nowrap;
+  text-align: center;
+  min-width: 320px; /* prevents text re-centering on delete */
+}
+#changing-text {
+  display: inline-block;
+  border-right: 2px solid #cba6f7;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: blink 0.8s step-end infinite;
+  min-width: 180px; /* keeps "slot" stable even when empty */
+  text-align: left;
+}
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+/* --- CERTIFICATIONS CENTER ALIGNMENT --- */
+#certifications ul {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  padding-left: 0;
+}
+#certifications .list-group-item {
+  text-align: center;
+  background: transparent;
+  border: none;
+  font-size: 1.05rem;
+}
+
+/* --- LIGHT THEME HERO IMAGE VISIBILITY --- */
+.light-theme .hero-section::before {
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6));
+}
+.light-theme .hero-section {
+  color: #fff;
+}
