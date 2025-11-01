@@ -287,3 +287,19 @@ section h2 { color: #cba6f7; font-weight: 700; margin-bottom: 1.5rem; }
 .light-theme .hero-section {
   color: #fff;
 }
+/* === Responsive Fix for Long Typewriter Text on Mobile === */
+
+@media (max-width: 600px) {
+  .hero-content h1 {
+    flex-direction: column;   /* stack text on small screens */
+    text-align: center;
+    gap: 5px;
+  }
+
+  #changing-text {
+    min-width: unset;         /* remove fixed width constraint */
+    max-width: 90vw;          /* prevent overflow beyond screen */
+    text-align: center;
+    word-break: break-word;
+  }
+}
