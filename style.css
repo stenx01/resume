@@ -266,6 +266,8 @@ section h2 { color: #cba6f7; font-weight: 700; margin-bottom: 1.5rem; }
   50% { border-color: transparent; }
 }
 
+
+
 /* --- CERTIFICATIONS CENTER ALIGNMENT --- */
 #certifications ul {
   max-width: 700px;
@@ -302,4 +304,36 @@ section h2 { color: #cba6f7; font-weight: 700; margin-bottom: 1.5rem; }
     text-align: center;
     word-break: break-word;
   }
+}
+/* Purple accent (adjust if your design uses another tone) */
+:root {
+  --accent-purple: #9b59b6;
+}
+
+/* Make the animated text purple */
+#changing-text {
+  color: var(--accent-purple);
+  transition: color 0.3s ease;
+}
+
+/* Make the toggle button text purple */
+.theme-toggle button {
+  color: var(--accent-purple);
+  border-color: var(--accent-purple);
+}
+
+/* Optional: change color slightly on hover for nice effect */
+.theme-toggle button:hover {
+  background-color: var(--accent-purple);
+  color: #fff;
+}
+
+/* Ensure contrast in light mode */
+.light-theme #changing-text {
+  color: var(--accent-purple);
+}
+
+.light-theme .theme-toggle button {
+  color: var(--accent-purple);
+  border-color: var(--accent-purple);
 }
