@@ -560,3 +560,208 @@ html {
     grid-template-columns: 1fr;
   }
 }
+
+.job-list {
+  display: grid;
+  gap: 16px;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.job {
+  background: rgba(28, 32, 48, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.job-head {
+  width: 100%;
+  text-align: left;
+  display: grid;
+  grid-template-columns: 140px 1fr auto;
+  gap: 16px;
+  align-items: start;
+  padding: 22px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.job-period {
+  color: #cba6f7;
+  font-weight: 600;
+  font-size: 0.88rem;
+  padding-top: 4px;
+}
+
+.job-head h3 {
+  margin: 0 0 6px;
+  font-size: 1.12rem;
+  color: inherit;
+}
+
+.job-meta {
+  color: #9aa0b0;
+  margin: 0;
+  font-size: 0.92rem;
+}
+
+.job-chevron {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  display: grid;
+  place-items: center;
+  transition: transform 0.2s;
+}
+
+.job.open .job-chevron {
+  transform: rotate(180deg);
+}
+
+.job-body {
+  display: none;
+  padding: 0 22px 22px 178px;
+}
+
+.job.open .job-body {
+  display: block;
+}
+
+.job-body ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.job-body li + li {
+  margin-top: 8px;
+}
+
+.skills-grid,
+.edu-grid,
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.skill-panel,
+.edu-card,
+.project {
+  background: rgba(28, 32, 48, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 22px;
+}
+
+.skill-panel h3,
+.edu-card h3,
+.project h3 {
+  margin: 0;
+  color: inherit;
+  font-size: 1.12rem;
+}
+
+.edu-years {
+  color: #9aa0b0;
+  margin: 0 0 8px;
+  font-size: 0.88rem;
+}
+
+.edu-card h3 {
+  margin-bottom: 6px;
+}
+
+.edu-card p,
+.project p {
+  margin: 0;
+  color: #9aa0b0;
+}
+
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.pill {
+  font-size: 0.85rem;
+  padding: 7px 11px;
+  border-radius: 999px;
+  background: rgba(203, 166, 247, 0.16);
+  color: #e8e4f0;
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 210px;
+}
+
+.project[hidden] {
+  display: none;
+}
+
+.project-cat {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #cba6f7;
+  font-weight: 600;
+}
+
+.project p {
+  flex: 1;
+}
+
+.light-theme .job,
+.light-theme .skill-panel,
+.light-theme .edu-card,
+.light-theme .project {
+  background: #fff;
+  color: #111;
+  border-color: #ddd;
+}
+
+.light-theme .job-meta,
+.light-theme .edu-years,
+.light-theme .edu-card p,
+.light-theme .project p {
+  color: #666;
+}
+
+.light-theme .pill {
+  background: #efe8fb;
+  color: #333;
+}
+
+.light-theme .job-chevron {
+  border-color: #ccc;
+}
+
+@media (max-width: 900px) {
+  .skills-grid,
+  .edu-grid,
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .job-head {
+    grid-template-columns: 1fr auto;
+  }
+
+  .job-period {
+    grid-column: 1 / -1;
+  }
+
+  .job-body {
+    padding: 0 20px 20px;
+  }
+}

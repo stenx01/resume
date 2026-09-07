@@ -7,7 +7,7 @@
   <title>Stoyan Terziyski</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=certs1">
+  <link rel="stylesheet" href="style.css?v=layout1">
   <style>
     html { scroll-padding-top: 76px; }
     .topbar {
@@ -169,6 +169,151 @@
     @media (max-width: 768px) {
       .certs-grid { grid-template-columns: 1fr; }
     }
+    .job-list {
+      display: grid;
+      gap: 16px;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+    .job {
+      background: rgba(28, 32, 48, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .job-head {
+      width: 100%;
+      text-align: left;
+      display: grid;
+      grid-template-columns: 140px 1fr auto;
+      gap: 16px;
+      align-items: start;
+      padding: 22px;
+      border: 0;
+      background: transparent;
+      color: inherit;
+      cursor: pointer;
+    }
+    .job-period {
+      color: #cba6f7;
+      font-weight: 600;
+      font-size: 0.88rem;
+      padding-top: 4px;
+    }
+    .job-head h3 {
+      margin: 0 0 6px;
+      font-size: 1.12rem;
+      color: inherit;
+    }
+    .job-meta {
+      color: #9aa0b0;
+      margin: 0;
+      font-size: 0.92rem;
+    }
+    .job-chevron {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      display: grid;
+      place-items: center;
+      transition: transform 0.2s;
+    }
+    .job.open .job-chevron { transform: rotate(180deg); }
+    .job-body { display: none; padding: 0 22px 22px 178px; }
+    .job.open .job-body { display: block; }
+    .job-body ul { margin: 0; padding-left: 18px; }
+    .job-body li + li { margin-top: 8px; }
+    .skills-grid,
+    .edu-grid,
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+    .skill-panel,
+    .edu-card,
+    .project {
+      background: rgba(28, 32, 48, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 22px;
+    }
+    .skill-panel h3,
+    .edu-card h3,
+    .project h3 {
+      margin: 0;
+      color: inherit;
+      font-size: 1.12rem;
+    }
+    .edu-years {
+      color: #9aa0b0;
+      margin: 0 0 8px;
+      font-size: 0.88rem;
+    }
+    .edu-card h3 { margin-bottom: 6px; }
+    .edu-card p,
+    .project p {
+      margin: 0;
+      color: #9aa0b0;
+    }
+    .pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .pill {
+      font-size: 0.85rem;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: rgba(203, 166, 247, 0.16);
+      color: #e8e4f0;
+    }
+    .project {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-height: 210px;
+    }
+    .project[hidden] { display: none; }
+    .project-cat {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #cba6f7;
+      font-weight: 600;
+    }
+    .project p { flex: 1; }
+    .light-theme .job,
+    .light-theme .skill-panel,
+    .light-theme .edu-card,
+    .light-theme .project {
+      background: #fff;
+      color: #111;
+      border-color: #ddd;
+    }
+    .light-theme .job-meta,
+    .light-theme .edu-years,
+    .light-theme .edu-card p,
+    .light-theme .project p { color: #666; }
+    .light-theme .pill {
+      background: #efe8fb;
+      color: #333;
+    }
+    .light-theme .job-chevron { border-color: #ccc; }
+    @media (max-width: 900px) {
+      .skills-grid,
+      .edu-grid,
+      .projects-grid { grid-template-columns: 1fr; }
+      .job-head {
+        grid-template-columns: 1fr auto;
+      }
+      .job-period { grid-column: 1 / -1; }
+      .job-body { padding: 0 20px 20px; }
+    }
   </style>
 </head>
 <body class="dark-theme">
@@ -224,162 +369,284 @@
 <!-- EXPERIENCE -->
 <section id="experience" class="container py-5" data-aos="fade-up">
   <h2 class="text-center mb-4">Work Experience</h2>
-  <div class="timeline">
-    <div class="timeline-item">
-      <h5>Global Capacity and Availability Management Lead</h5>
-      <p><strong>DXC Technology</strong> | Oct 2020 – Present</p>
-      <ul>
-        <li>Leading ITSM teams driving process maturity and automation.</li>
-        <li>Developing digital transformation solutions and advanced reporting tools.</li>
-      </ul>
-    </div>
-    <div class="timeline-item">
-      <h5>Process Lead – Availability, Capacity, Configuration</h5>
-      <p><strong>DXC Technology</strong> | Aug 2015 – Oct 2020</p>
-      <ul>
-        <li>Defined and maintained ITIL processes for key enterprise accounts.</li>
-        <li>Created automation for performance tracking and configuration management.</li>
-      </ul>
-    </div>
-    <div class="timeline-item">
-      <h5>Capacity Manager</h5>
-      <p><strong>Hewlett-Packard Enterprise</strong> | Oct 2013 – Aug 2015</p>
-      <ul>
-        <li>Implemented ITIL capacity and demand frameworks across infrastructure domains.</li>
-        <li>Optimized resource usage and performance through analytics and automation.</li>
-      </ul>
-    </div>
-
-    <!-- add storage position -->
-    <div class="timeline-item">
-      <h5>Storage Engineer I & Staff Engineer</h5>
-      <p><strong>Hewlett-Packard Enterprise</strong> | 2010 – 2013</p>
-      <ul>
-        <li>Handled SAN/NAS/FC systems, root cause analysis, and best practice designs.</li>
-      </ul>
-    </div>
+  <div class="job-list">
+    <article class="job open">
+      <button type="button" class="job-head" aria-expanded="true">
+        <span class="job-period">2020 — Present</span>
+        <div>
+          <h3>Global Capacity and Availability Management Lead</h3>
+          <p class="job-meta">DXC Technology · Sofia, Bulgaria</p>
+        </div>
+        <span class="job-chevron" aria-hidden="true">▾</span>
+      </button>
+      <div class="job-body">
+        <ul>
+          <li>Led a global Capacity &amp; Availability Management team, driving process efficiency through workshops, performance tracking, and escalation handling.</li>
+          <li>Spearheaded automation of reporting, dashboards, and data visualization, significantly reducing manual effort across infrastructure and middleware layers.</li>
+          <li>Championed ITIL and Lean-based Continuous Service Improvement initiatives focused on digital transformation and operational maturity.</li>
+          <li>Managed team staffing, resource allocation, and delivery of complex, non-standard solutions for enterprise clients.</li>
+        </ul>
+      </div>
+    </article>
+    <article class="job">
+      <button type="button" class="job-head" aria-expanded="false">
+        <span class="job-period">2015 — 2020</span>
+        <div>
+          <h3>Process Lead — Availability, Capacity, Configuration</h3>
+          <p class="job-meta">DXC Technology · Sofia, Bulgaria</p>
+        </div>
+        <span class="job-chevron" aria-hidden="true">▾</span>
+      </button>
+      <div class="job-body">
+        <ul>
+          <li>Owned Capacity, Availability, and Configuration Management end-to-end for Audi AG, acting as primary SPOC for account, delivery, and service teams.</li>
+          <li>Built process documentation, reporting catalogs, and procedures from scratch.</li>
+          <li>Designed and implemented a complete custom IT Asset Management process for licenses, contracts, and certificates.</li>
+          <li>Led a CMDB transition project and automated application-layer reporting using AppDynamics and custom scripts.</li>
+          <li>Developed ServiceNow-related reporting and data analysis automation using Python and Jupyter notebooks.</li>
+          <li>Established cloud resource visibility (VMs, RAM, IP pools, datastores) for capacity planning via Power BI and supporting tooling.</li>
+        </ul>
+      </div>
+    </article>
+    <article class="job">
+      <button type="button" class="job-head" aria-expanded="false">
+        <span class="job-period">2013 — 2015</span>
+        <div>
+          <h3>Capacity Manager</h3>
+          <p class="job-meta">Hewlett-Packard Enterprise · Sofia, Bulgaria</p>
+        </div>
+        <span class="job-chevron" aria-hidden="true">▾</span>
+      </button>
+      <div class="job-body">
+        <ul>
+          <li>Delivered Capacity and Availability Management for British Petroleum within the ITIL framework, collaborating with Storage, Database, Network, and Server teams.</li>
+          <li>Designed and implemented a SharePoint-based Demand Management process that reduced capacity bottlenecks and improved project timelines.</li>
+          <li>Optimized component-level performance using Business Objects, GDCPM, and HPNA tooling.</li>
+        </ul>
+      </div>
+    </article>
+    <article class="job">
+      <button type="button" class="job-head" aria-expanded="false">
+        <span class="job-period">2011 — 2013</span>
+        <div>
+          <h3>Storage Engineer I</h3>
+          <p class="job-meta">Hewlett-Packard Enterprise · Sofia, Bulgaria</p>
+        </div>
+        <span class="job-chevron" aria-hidden="true">▾</span>
+      </button>
+      <div class="job-body">
+        <ul>
+          <li>Resolved complex SAN/NAS/FC issues and performed root cause analysis on virtual arrays and fibre channel switches.</li>
+          <li>Designed best practices for disk groups and LUN presentation and delivered training to new engineers.</li>
+        </ul>
+      </div>
+    </article>
   </div>
 </section>
 
 <!-- EDUCATION -->
 <section id="education" class="container py-5" data-aos="fade-up">
   <h2 class="text-center mb-4">Education</h2>
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-      <div class="card p-3 mb-3 shadow-sm">
-        <h5>Master’s Degree – Financial Management</h5>
-        <p>Paisii Hilendarski University, Plovdiv (2014–2015)</p>
-      </div>
-      <div class="card p-3 shadow-sm">
-        <h5>Bachelor’s Degree – International Economic Relations</h5>
-        <p>Paisii Hilendarski University, Plovdiv (2006–2010)</p>
-      </div>
-    </div>
+  <div class="edu-grid">
+    <article class="edu-card">
+      <p class="edu-years">2014 — 2015</p>
+      <h3>Master’s Degree — Financial Management</h3>
+      <p>Paisii Hilendarski University<br>Plovdiv, Bulgaria</p>
+    </article>
+    <article class="edu-card">
+      <p class="edu-years">2006 — 2010</p>
+      <h3>Bachelor’s Degree — International Economic Relations</h3>
+      <p>Paisii Hilendarski University<br>Plovdiv, Bulgaria</p>
+    </article>
   </div>
 </section>
 
 <!-- SKILLS -->
 <section id="skills" class="container py-5" data-aos="fade-up">
   <h2 class="text-center mb-4">Skills</h2>
-  <div class="row text-center">
-    <div class="col-md-3 col-6 mb-3">ITSM & Project Management</div>
-    <div class="col-md-3 col-6 mb-3">Cloud (Azure, AWS)</div>
-    <div class="col-md-3 col-6 mb-3">Azure AI Foundry</div>
-    <div class="col-md-3 col-6 mb-3">Automation & Reporting</div>
-    <div class="col-md-3 col-6 mb-3">Configuration Management</div>
-    <div class="col-md-3 col-6 mb-3">Python & Analytics</div>
-    <div class="col-md-3 col-6 mb-3">Capacity Management</div>
-    <div class="col-md-3 col-6 mb-3">Digital Transformation</div>
-    <div class="col-md-3 col-6 mb-3">Scrum & Lean Six Sigma</div>
+  <div class="skills-grid">
+    <article class="skill-panel">
+      <h3>ServiceNow</h3>
+      <div class="pills">
+        <span class="pill">CIS-ITSM</span>
+        <span class="pill">CIS-PA</span>
+        <span class="pill">CIS-SAM</span>
+        <span class="pill">CIS-HAM</span>
+        <span class="pill">Discovery</span>
+        <span class="pill">CMDB</span>
+        <span class="pill">CAD</span>
+        <span class="pill">CSA</span>
+      </div>
+    </article>
+    <article class="skill-panel">
+      <h3>Cloud, automation &amp; analytics</h3>
+      <div class="pills">
+        <span class="pill">Cursor</span>
+        <span class="pill">Azure AI Foundry</span>
+        <span class="pill">Python</span>
+        <span class="pill">Power BI</span>
+        <span class="pill">Reporting</span>
+        <span class="pill">Cloud computing</span>
+        <span class="pill">Automation</span>
+        <span class="pill">Databricks</span>
+      </div>
+    </article>
+    <article class="skill-panel">
+      <h3>ITSM &amp; governance</h3>
+      <div class="pills">
+        <span class="pill">ITSM</span>
+        <span class="pill">Capacity Management</span>
+        <span class="pill">Availability</span>
+        <span class="pill">Configuration</span>
+        <span class="pill">Asset Management</span>
+        <span class="pill">Demand Management</span>
+        <span class="pill">CSI</span>
+      </div>
+    </article>
+    <article class="skill-panel">
+      <h3>Leadership &amp; delivery</h3>
+      <div class="pills">
+        <span class="pill">Enterprise service delivery</span>
+        <span class="pill">Account management</span>
+        <span class="pill">Transformation</span>
+        <span class="pill">Process design</span>
+        <span class="pill">Team leadership</span>
+      </div>
+    </article>
   </div>
 </section>
 
 <!-- PROJECTS -->
 <section id="projects" class="container py-5" data-aos="fade-up">
   <h2 class="text-center mb-4">Projects</h2>
-  <div class="row">
-    <!-- New professional projects first -->
-    <div class="col-md-6 mb-4">
-      <div class="project-card p-4 shadow-sm h-100">
-        <h5>Automated Wallet & IBAN Risk Screening </h5>
-        <p>Built a FastAPI web app to screen Ethereum, Bitcoin, and IBAN subjects against OFAC/OpenSanctions and on-chain data, producing an explainable risk score, Groq-generated analyst note, and PDF report with per-user investigation history.</p>
-      </div>
-    </div>
-    <div class="col-md-6 mb-4">
-      <div class="project-card p-4 shadow-sm h-100">
-        <h5>Application Layer Monitoring Dashboards</h5>
-        <p>Built real-time monitoring dashboards in AppDynamics to track health and performance of critical business services and applications.</p>
-      </div>
-    </div>
-    <div class="col-md-6 mb-4">
-      <div class="project-card p-4 shadow-sm h-100">
-        <h5>Automated ServiceNow Data Analysis & Archiving</h5>
-        <p>Developed Jupyter Notebook pipelines to extract Incidents & Service Requests from ServiceNow, generate trend visualizations, and archive historical data in efficient Parquet format for long-term reporting and analytics.</p>
-      </div>
-    </div>
-    <div class="col-md-6 mb-4">
-      <div class="project-card p-4 shadow-sm h-100">
-        <h5>Enterprise IT Asset Management Process</h5>
-        <p>Designed and implemented a complete ITAM process from scratch — managing hardware/software contracts, licenses, and certificates across BSM, Excel, SharePoint, and multiple data sources for a large-scale enterprise environment.</p>
-      </div>
-    </div>
-
-
-    <div class="col-md-6 mb-4">
-      <div class="project-card p-4 shadow-sm h-100">
-        <h5>Automated Interactive Cloud Reporting</h5>
-        <p>Integrated vCenter RVTools data into Power BI for dynamic dashboards and forecasts across clusters, VMs, datastores, and filesystems—turning raw data into predictive insights.</p>
-      </div>
-    </div>
-    <div class="col-md-6 mb-4">
-      <div class="project-card p-4 shadow-sm h-100">
-        <h5>Weather Forecast Automation Script</h5>
-        <p>API-based daily weather alerts with notifications when conditions are met.</p>
-      </div>
-    </div>
-    <div class="col-md-6 mb-4">
-      <div class="project-card p-4 shadow-sm h-100">
-        <h5>Automated Stock Price Alerts</h5>
-        <p>Monitors stock prices, triggers notifications, and attaches market news.</p>
-      </div>
-    </div>
-    <div class="col-md-6 mb-4">
-      <div class="project-card p-4 shadow-sm h-100">
-        <h5>Flask Blog Platform</h5>
-        <p>Full-stack blog with Flask, Jinja, Bootstrap5, Gunicorn, DB integration and user management.</p>
-      </div>
-    </div>
-    <div class="col-md-6 mb-4">
-      <div class="project-card p-4 shadow-sm h-100">
-        <h5>Movies & Books Rating App</h5>
-        <p>Interactive app for rating and reviewing media using Python, Flask, and web forms.</p>
-      </div>
-    </div>
-    <div class="col-md-6 mb-4">
-      <div class="project-card p-4 shadow-sm h-100">
-        <h5>Flight Deal Alerts</h5>
-        <p>API + Sheety integration for detecting cheap flights and sending automated notifications.</p>
-      </div>
-    </div>
-    <div class="col-md-6 mb-4">
-      <div class="project-card p-4 shadow-sm h-100">
-        <h5>Rental Price Research Scraper</h5>
-        <p>Automated data collection with Selenium & BeautifulSoup, outputs to Google Sheets/Forms.</p>
-      </div>
-    </div>
-    <div class="col-md-6 mb-4">
-      <div class="project-card p-4 shadow-sm h-100">
-        <h5>Billboard 100 YouTube Playlist Creator</h5>
-        <p>Authenticates input to fetch Billboard 100 data and automatically create a YouTube playlist.</p>
-      </div>
-    </div>
-    <div class="col-md-6 mb-4">
-  <div class="project-card p-4 shadow-sm h-100">
-    <h5>CDN Detector</h5>
-    <p>Simple Python tool that checks any website's HTTP response headers for CDN fingerprints (Cloudflare, Akamai, etc.) to identify if and which CDN is being used.</p>
+  <div class="cert-filters project-filters" role="tablist" aria-label="Project groups">
+    <button type="button" class="cert-filter active" data-group="All" aria-pressed="true">All</button>
+    <button type="button" class="cert-filter" data-group="Enterprise" aria-pressed="false">Enterprise</button>
+    <button type="button" class="cert-filter" data-group="Automation" aria-pressed="false">Automation</button>
+    <button type="button" class="cert-filter" data-group="Personal" aria-pressed="false">Personal</button>
   </div>
-</div>
-
+  <div class="projects-grid">
+    <article class="project" data-group="Automation">
+      <span class="project-cat">Automation</span>
+      <h3>Automated Wallet &amp; IBAN Risk Screening</h3>
+      <p>FastAPI web app that screens Ethereum, Bitcoin, and IBAN subjects against OFAC/OpenSanctions and on-chain data, producing an explainable risk score, Groq-generated analyst note, and PDF report with per-user investigation history.</p>
+      <div class="pills">
+        <span class="pill">FastAPI</span>
+        <span class="pill">AI</span>
+        <span class="pill">OFAC</span>
+        <span class="pill">Python</span>
+      </div>
+    </article>
+    <article class="project" data-group="Enterprise">
+      <span class="project-cat">Enterprise</span>
+      <h3>Application Layer Monitoring Dashboards</h3>
+      <p>Real-time AppDynamics dashboards tracking health and performance of critical business services and applications.</p>
+      <div class="pills">
+        <span class="pill">AppDynamics</span>
+        <span class="pill">Observability</span>
+      </div>
+    </article>
+    <article class="project" data-group="Enterprise">
+      <span class="project-cat">Enterprise</span>
+      <h3>Automated ServiceNow Data Analysis &amp; Archiving</h3>
+      <p>Jupyter pipelines extracting Incidents and Service Requests from ServiceNow, generating trend visualizations, and archiving historical data in Parquet for long-term reporting.</p>
+      <div class="pills">
+        <span class="pill">ServiceNow</span>
+        <span class="pill">Python</span>
+        <span class="pill">Jupyter</span>
+      </div>
+    </article>
+    <article class="project" data-group="Enterprise">
+      <span class="project-cat">Enterprise</span>
+      <h3>Enterprise IT Asset Management Process</h3>
+      <p>End-to-end ITAM process designed from scratch — hardware/software contracts, licenses, and certificates across BSM, Excel, SharePoint, and multiple data sources.</p>
+      <div class="pills">
+        <span class="pill">ITAM</span>
+        <span class="pill">Process design</span>
+      </div>
+    </article>
+    <article class="project" data-group="Enterprise">
+      <span class="project-cat">Enterprise</span>
+      <h3>Automated Interactive Cloud Reporting</h3>
+      <p>vCenter RVTools data integrated into Power BI for dynamic dashboards and forecasts across clusters, VMs, datastores, and filesystems.</p>
+      <div class="pills">
+        <span class="pill">Power BI</span>
+        <span class="pill">vCenter</span>
+        <span class="pill">Capacity</span>
+      </div>
+    </article>
+    <article class="project" data-group="Personal">
+      <span class="project-cat">Personal</span>
+      <h3>Weather Forecast Automation Script</h3>
+      <p>API-based daily weather alerts with notifications when conditions are met.</p>
+      <div class="pills">
+        <span class="pill">Python</span>
+        <span class="pill">APIs</span>
+      </div>
+    </article>
+    <article class="project" data-group="Personal">
+      <span class="project-cat">Personal</span>
+      <h3>Automated Stock Price Alerts</h3>
+      <p>Monitors stock prices, triggers notifications, and attaches relevant market news.</p>
+      <div class="pills">
+        <span class="pill">Python</span>
+        <span class="pill">APIs</span>
+      </div>
+    </article>
+    <article class="project" data-group="Personal">
+      <span class="project-cat">Personal</span>
+      <h3>Flask Blog Platform</h3>
+      <p>Full-stack blog with Flask, Jinja, Bootstrap 5, Gunicorn, database integration, and user management.</p>
+      <div class="pills">
+        <span class="pill">Flask</span>
+        <span class="pill">Python</span>
+      </div>
+    </article>
+    <article class="project" data-group="Personal">
+      <span class="project-cat">Personal</span>
+      <h3>Movies &amp; Books Rating App</h3>
+      <p>Interactive app for rating and reviewing media using Python, Flask, and web forms.</p>
+      <div class="pills">
+        <span class="pill">Flask</span>
+        <span class="pill">Python</span>
+      </div>
+    </article>
+    <article class="project" data-group="Personal">
+      <span class="project-cat">Personal</span>
+      <h3>Flight Deal Alerts</h3>
+      <p>API + Sheety integration for detecting cheap flights and sending automated notifications.</p>
+      <div class="pills">
+        <span class="pill">Python</span>
+        <span class="pill">APIs</span>
+      </div>
+    </article>
+    <article class="project" data-group="Personal">
+      <span class="project-cat">Personal</span>
+      <h3>Rental Price Research Scraper</h3>
+      <p>Automated data collection with Selenium and BeautifulSoup, outputting to Google Sheets/Forms.</p>
+      <div class="pills">
+        <span class="pill">Selenium</span>
+        <span class="pill">Python</span>
+      </div>
+    </article>
+    <article class="project" data-group="Personal">
+      <span class="project-cat">Personal</span>
+      <h3>Billboard 100 YouTube Playlist Creator</h3>
+      <p>Fetches Billboard 100 data and automatically creates a YouTube playlist.</p>
+      <div class="pills">
+        <span class="pill">Python</span>
+        <span class="pill">YouTube API</span>
+      </div>
+    </article>
+    <article class="project" data-group="Personal">
+      <span class="project-cat">Personal</span>
+      <h3>CDN Detector</h3>
+      <p>Python tool that checks HTTP response headers for CDN fingerprints (Cloudflare, Akamai, and others).</p>
+      <div class="pills">
+        <span class="pill">Python</span>
+        <span class="pill">Networking</span>
+      </div>
+    </article>
   </div>
 </section>
 
@@ -658,6 +925,38 @@
         other.setAttribute("aria-pressed", String(active));
       });
       certCards.forEach((card) => {
+        card.hidden = group !== "All" && card.dataset.group !== group;
+      });
+    });
+  });
+
+  document.querySelectorAll(".job-head").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const job = btn.closest(".job");
+      const wasOpen = job.classList.contains("open");
+      document.querySelectorAll(".job").forEach((item) => {
+        item.classList.remove("open");
+        const head = item.querySelector(".job-head");
+        if (head) head.setAttribute("aria-expanded", "false");
+      });
+      if (!wasOpen) {
+        job.classList.add("open");
+        btn.setAttribute("aria-expanded", "true");
+      }
+    });
+  });
+
+  const projectButtons = [...document.querySelectorAll(".project-filters .cert-filter")];
+  const projectCards = [...document.querySelectorAll(".project[data-group]")];
+  projectButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const group = btn.dataset.group;
+      projectButtons.forEach((other) => {
+        const active = other === btn;
+        other.classList.toggle("active", active);
+        other.setAttribute("aria-pressed", String(active));
+      });
+      projectCards.forEach((card) => {
         card.hidden = group !== "All" && card.dataset.group !== group;
       });
     });
