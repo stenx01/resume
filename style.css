@@ -337,3 +337,123 @@ section h2 { color: #cba6f7; font-weight: 700; margin-bottom: 1.5rem; }
   color: var(--accent-purple);
   border-color: var(--accent-purple);
 }
+
+html {
+  scroll-padding-top: 76px;
+}
+
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 64px;
+  padding: 8px 160px 8px 18px;
+  background: rgba(17, 17, 17, 0.92);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(203, 166, 247, 0.22);
+  transform: translateY(-110%);
+  transition: transform 0.28s ease;
+}
+
+.topbar.is-visible {
+  transform: translateY(0);
+}
+
+.topbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff !important;
+  text-decoration: none;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.topbar-mark {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  background: rgba(203, 166, 247, 0.16);
+  color: #cba6f7;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.topbar-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.topbar-nav a {
+  border: 1px solid #cba6f7;
+  color: #fff;
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-size: 0.92rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.topbar-nav a:hover,
+.topbar-nav a.active {
+  background: #cba6f7;
+  color: #111;
+  box-shadow: 0 0 10px rgba(203, 166, 247, 0.55);
+}
+
+.theme-toggle {
+  z-index: 50;
+}
+
+.light-theme .topbar {
+  background: rgba(248, 249, 250, 0.94);
+}
+
+.light-theme .topbar-brand {
+  color: #111 !important;
+}
+
+.light-theme .topbar-nav a {
+  color: #111;
+}
+
+.light-theme .topbar-nav a:hover,
+.light-theme .topbar-nav a.active {
+  background: #cba6f7;
+  color: #111;
+}
+
+@media (max-width: 900px) {
+  .topbar {
+    padding: 8px 16px;
+    flex-wrap: wrap;
+  }
+
+  .topbar-name {
+    display: none;
+  }
+
+  .topbar-nav {
+    width: 100%;
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 4px;
+  }
+
+  .topbar-nav a {
+    flex: 0 0 auto;
+    padding: 5px 10px;
+    font-size: 0.82rem;
+  }
+}
