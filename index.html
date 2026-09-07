@@ -11,11 +11,27 @@
 </head>
 <body class="dark-theme">
 
+<div class="topbar" id="topbar">
+  <a class="topbar-brand" href="#top" title="Stoyan Terziyski">
+    <span class="topbar-mark">ST</span>
+    <span class="topbar-name">Stoyan Terziyski</span>
+  </a>
+  <nav class="topbar-nav" aria-label="Page">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#education">Education</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</div>
+
 <!-- HERO SECTION -->
-<header class="hero-section text-center text-light d-flex flex-column align-items-center justify-content-center">
+<header id="top" class="hero-section text-center text-light d-flex flex-column align-items-center justify-content-center">
   <div class="hero-content" data-aos="fade-up">
     <h1 class="display-4 fw-bold mb-3">Stoyan <span id="changing-text"></span></h1>
-    <div class="hero-buttons sticky-nav">
+    <div class="hero-buttons">
       <a href="#about" class="btn btn-outline-light m-2">About</a>
       <a href="#experience" class="btn btn-outline-light m-2">Experience</a>
       <a href="#education" class="btn btn-outline-light m-2">Education</a>
@@ -301,6 +317,30 @@
     document.body.classList.toggle("dark-theme");
     AOS.refresh();
   });
+
+  const topbar = document.getElementById("topbar");
+  const hero = document.querySelector(".hero-section");
+  const topbarLinks = [...document.querySelectorAll(".topbar-nav a")];
+  const sections = topbarLinks
+    .map((link) => document.querySelector(link.getAttribute("href")))
+    .filter(Boolean);
+
+  function updateTopbar() {
+    const pastHero = window.scrollY > hero.offsetHeight - 90;
+    topbar.classList.toggle("is-visible", pastHero);
+    document.body.classList.toggle("topbar-on", pastHero);
+
+    let current = topbarLinks[0];
+    for (const section of sections) {
+      if (section.getBoundingClientRect().top < 100) {
+        current = topbarLinks.find((link) => link.getAttribute("href") === `#${section.id}`);
+      }
+    }
+    topbarLinks.forEach((link) => link.classList.toggle("active", link === current));
+  }
+
+  window.addEventListener("scroll", updateTopbar, { passive: true });
+  updateTopbar();
 </script>
 
 <!-- 🟢 SendPulse Chatbot Embed -->
