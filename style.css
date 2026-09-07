@@ -465,3 +465,98 @@ html {
     font-size: 0.82rem;
   }
 }
+
+.cert-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: 920px;
+  margin: 0 auto 22px;
+}
+
+.cert-filter {
+  border: 0;
+  background: #2a2a32;
+  color: #c4c4cc;
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+}
+
+.cert-filter.active,
+.cert-filter:hover {
+  background: #6b4ea8;
+  color: #fff;
+}
+
+.certs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.cert-card {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: rgba(28, 32, 48, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 14px 16px;
+  color: #fff;
+}
+
+.cert-card[hidden] {
+  display: none;
+}
+
+.cert-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-top: 7px;
+  background: #cba6f7;
+  flex-shrink: 0;
+}
+
+.cert-card strong {
+  display: block;
+  font-size: 0.98rem;
+  font-weight: 700;
+}
+
+.cert-card small {
+  display: block;
+  margin-top: 2px;
+  color: #9aa0b0;
+  font-size: 0.82rem;
+}
+
+.light-theme .cert-filter {
+  background: #e6e4ee;
+  color: #444;
+}
+
+.light-theme .cert-filter.active,
+.light-theme .cert-filter:hover {
+  background: #cba6f7;
+  color: #111;
+}
+
+.light-theme .cert-card {
+  background: #fff;
+  color: #111;
+  border-color: #ddd;
+}
+
+.light-theme .cert-card small {
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .certs-grid {
+    grid-template-columns: 1fr;
+  }
+}
