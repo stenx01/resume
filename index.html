@@ -7,7 +7,7 @@
   <title>Stoyan Terziyski</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=topbar2">
+  <link rel="stylesheet" href="style.css?v=topbar3">
   <style>
     html { scroll-padding-top: 76px; }
     .topbar {
@@ -18,10 +18,9 @@
       z-index: 40;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 16px;
+      justify-content: center;
       min-height: 64px;
-      padding: 8px 160px 8px 18px;
+      padding: 8px 24px;
       background: rgba(17, 17, 17, 0.92);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid rgba(203, 166, 247, 0.22);
@@ -36,6 +35,15 @@
       visibility: visible;
       pointer-events: auto;
       transform: translateY(0);
+    }
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px 22px;
+      max-width: 1080px;
+      width: 100%;
     }
     .topbar-brand {
       display: flex;
@@ -59,7 +67,7 @@
     .topbar-nav {
       display: flex;
       flex-wrap: wrap;
-      justify-content: flex-end;
+      justify-content: center;
       gap: 8px;
     }
     .topbar-nav a {
@@ -82,13 +90,13 @@
     .light-theme .topbar-brand { color: #111 !important; }
     .light-theme .topbar-nav a { color: #111 !important; }
     @media (max-width: 900px) {
-      .topbar { padding: 8px 16px; flex-wrap: wrap; }
+      .topbar { padding: 8px 16px; }
       .topbar-name { display: none; }
       .topbar-nav {
-        width: 100%;
-        justify-content: flex-start;
+        max-width: 100%;
         overflow-x: auto;
         flex-wrap: nowrap;
+        justify-content: center;
       }
       .topbar-nav a { flex: 0 0 auto; padding: 5px 10px; font-size: 0.82rem; }
     }
@@ -97,19 +105,21 @@
 <body class="dark-theme">
 
 <div class="topbar" id="topbar">
-  <a class="topbar-brand" href="#top" title="Stoyan Terziyski">
-    <span class="topbar-mark">ST</span>
-    <span class="topbar-name">Stoyan Terziyski</span>
-  </a>
-  <nav class="topbar-nav" aria-label="Page">
-    <a href="#about">About</a>
-    <a href="#experience">Experience</a>
-    <a href="#education">Education</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#certifications">Certifications</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <div class="topbar-inner">
+    <a class="topbar-brand" href="#top" title="Stoyan Terziyski">
+      <span class="topbar-mark">ST</span>
+      <span class="topbar-name">Stoyan Terziyski</span>
+    </a>
+    <nav class="topbar-nav" aria-label="Page">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
 </div>
 
 <!-- HERO SECTION -->

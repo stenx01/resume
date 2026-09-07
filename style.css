@@ -350,10 +350,9 @@ html {
   z-index: 40;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 16px;
+  justify-content: center;
   min-height: 64px;
-  padding: 8px 160px 8px 18px;
+  padding: 8px 24px;
   background: rgba(17, 17, 17, 0.92);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(203, 166, 247, 0.22);
@@ -363,6 +362,16 @@ html {
 
 .topbar.is-visible {
   transform: translateY(0);
+}
+
+.topbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px 22px;
+  max-width: 1080px;
+  width: 100%;
 }
 
 .topbar-brand {
@@ -390,7 +399,7 @@ html {
 .topbar-nav {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-end;
+  justify-content: center;
   gap: 8px;
 }
 
@@ -436,7 +445,6 @@ html {
 @media (max-width: 900px) {
   .topbar {
     padding: 8px 16px;
-    flex-wrap: wrap;
   }
 
   .topbar-name {
@@ -444,8 +452,8 @@ html {
   }
 
   .topbar-nav {
-    width: 100%;
-    justify-content: flex-start;
+    max-width: 100%;
+    justify-content: center;
     overflow-x: auto;
     flex-wrap: nowrap;
     padding-bottom: 4px;
